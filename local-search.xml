@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>西电新生赛http.md</title>
+    <link href="/2023/10/29/%E8%A5%BF%E7%94%B5%E6%96%B0%E7%94%9F%E8%B5%9Bhttp-md/"/>
+    <url>/2023/10/29/%E8%A5%BF%E7%94%B5%E6%96%B0%E7%94%9F%E8%B5%9Bhttp-md/</url>
+    
+    <content type="html"><![CDATA[<h2 id="第一个点"><a href="#第一个点" class="headerlink" title="第一个点"></a>第一个点</h2><p>这里考察的是burp的使用技巧，如何将http中的GET请求变成POST请求，首先发送到repeater模块<br><img src="https://img-blog.csdnimg.cn/14b58a3056a643ec8d44947d60cf459d.png#pic_center" alt="在这里插入图片描述"><br>进入到repeater部分的时候首先看到的是GET请求所以右键选择request change method改变为POST请求,POST请求的作用就是改变和创建参数，然后再change一次变成GET请求刚刚的参数返回主体。<br><img src="https://img-blog.csdnimg.cn/eddd512106874aa5b72392557c781378.png" alt="在这里插入图片描述"><br>第二步在末尾加上Luv&#x3D;u的参数改变请求然后POST最后就是很简单的修改但也是最重要的方法之一XFF并且需要Content-Type: application&#x2F;x-www-form-urlencoded 才能实现改变地址端<br>X-Forwarded-For 是一个 HTTP 扩展头部。HTTP&#x2F;1.1（RFC 2616）协议并没有对它的定义，它最开始是由 Squid 这个缓存代理软件引入，用来表示 HTTP 请求端真实 IP。<br>最后改一下character和浏览器就好了。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>http第二天</title>
     <link href="/2023/10/28/http%E7%AC%AC%E4%BA%8C%E5%A4%A9/"/>
     <url>/2023/10/28/http%E7%AC%AC%E4%BA%8C%E5%A4%A9/</url>
