@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>xiaodi_1（1）</title>
+      <link href="/2024/07/06/xiaodi-1%EF%BC%881%EF%BC%89/"/>
+      <url>/2024/07/06/xiaodi-1%EF%BC%881%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h2 id="实例1"><a href="#实例1" class="headerlink" title="实例1"></a>实例1</h2><h2 id="内网"><a href="#内网" class="headerlink" title="内网"></a>内网</h2><p>内网模糊解释，虚拟机相对于主机即内网，主机牵宽带以路由器连接，即内网有一个出口到外网。</p><p>图示：</p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720270504173.png" alt="1720270504173"></p><p>理解如下：</p><p>内网通过路由器可以一路找到外网，而外网是无法直接找到内网的，内网在不同地区不同地区会有相同的地址，无法识别是哪一个，只有建立管道才能将数据传输到内网。</p><p><strong>以小迪8和虚拟机为演示：</strong></p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720271113285.png" alt="1720271113285"></p><p>首先nc测试提交到小迪8（先ping小迪8得到外网地址）</p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720271280786.png" alt="1720271280786"></p><p>然后在小迪8使用lvvp进行端口监听</p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720271353569.png" alt="1720271353569"></p><p>得到了内网到外网的出口地址</p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720271429362.png" alt="1720271429362"></p><p>而以上图片的地址为内网真正的地址，即外网无法检测到内网地址只能监听到出口</p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720271482064.png" alt="1720271482064"></p><p>而由于拿到了内网的权限因此执行ipconfig就能拿到内网地址，这就是典型的反弹。</p><p>而反过来外网地址去nc192.168–这个内网地址，内网是无法lvvp监听到外网地址的</p><p><strong>解决办法路由器映射地址</strong></p><p><strong>总结</strong>    nc- e 反弹到 nc -lvvp</p><h2 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h2><h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720272764857.png" alt="1720272764857"></p><p>在小迪8打开防火墙后，小迪8就无法利用nc -lvvp监听到，这个时候就需要使用<strong>交互</strong>来解决</p><p>反向思考将小迪8出站nc -e到linux的ip地址，linux监听进而可以对小迪8操作，即对于防火墙出站是宽松的</p><p><strong>正向</strong>：以小迪8为基准去找linux所以是正向的</p><p><strong>反向</strong>：以linux为基准小迪8来，自己什么都没做</p><p>一般情况下即linux为你的工作主机，小迪8为渗透对象，所以就称之为反向</p><h2 id="案例3"><a href="#案例3" class="headerlink" title="案例3"></a>案例3</h2><h3 id="fafo拿下皮卡丘靶场"><a href="#fafo拿下皮卡丘靶场" class="headerlink" title="fafo拿下皮卡丘靶场"></a>fafo拿下皮卡丘靶场</h3><p>第一步在网页打开fafo然后在搜索框做如下操作：</p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720275458065.png" alt="1720275458065"></p><p>然后找到可以使用的ip</p><p>进入之后在rce漏洞（远程代码执行）ping执行文件上传然后dir回显，即可以实现（判断代码能否执行）文件上传在棱角获取如下</p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720275664651.png" alt="1720275664651"></p><p>然后将皮卡丘端口 nc - e发送给自己的服务器</p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720275707113.png" alt="1720275707113"></p><p>最后自己的服务器监听那么即可实现，拿下了别人的服务器</p><p><img src="/../../../../Users/25756/AppData/Roaming/Typora/typora-user-images/1720275774670.png" alt="1720275774670"></p><p><strong>总结</strong>：学习了反弹shell的思路，尤其是遇到防火墙的时候，要利用出站宽送的原则，将渗透主机主动发起nc -e利用主机监听</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web_security </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Diary </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>xiaodi_1（0）</title>
       <link href="/2024/07/06/xiaodi-1-0/"/>
       <url>/2024/07/06/xiaodi-1-0/</url>
