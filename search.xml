@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>xiaodi_4（0）</title>
+      <link href="/2024/07/14/2024714-xiaodi-4%EF%BC%880%EF%BC%89/"/>
+      <url>/2024/07/14/2024714-xiaodi-4%EF%BC%880%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1 id="信息打点"><a href="#信息打点" class="headerlink" title="信息打点"></a>信息打点</h1><p>1.语言识别（f12检查看拦截的数据包、看响应头（看中间件）、看有无基于开源的产品（源码名称）搭建百度该产品）</p><p>2.ping命令看TTL值查看操作系统（但不是明确的）</p><p>3.查看数据库，搭建组合，端口扫描（直接百度数据库常见端口）</p><p>4.主动式与被动式（有的src禁止主动式）</p><p>使用网上端口扫描后看到端口可直接确定数据库类型，利用网上提交的漏洞可以进行安全测试，没有就自己代码审计</p><p>对于数据库和语言会有常规的漏洞，中间件网上也收集有常规的漏洞</p><h1 id="案例一某违法软件"><a href="#案例一某违法软件" class="headerlink" title="案例一某违法软件"></a>案例一某违法软件</h1><p>首先使用burp拦截数据包看看有无相关的网页信息</p><p><img src="/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240714203518.jpg"></p><p><img src="/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240714204738.jpg"></p><p>以上可以看出中间件nginx 语言php</p><p>如果是百度.com之类的就是无效信息直接forward继续找，找到之后可以百度直接访问</p><p>若百度访问不了可以谷歌或者火狐使用hackbar将data包post上去以及相关的后缀域名</p><p><img src="/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240714204402.jpg"></p><p>从这些可以看出语言 php 端口扫描工具（可能关闭扫描不到的话另想办法）观察到开放的端口3306即可以知道数据库为mysql </p><p><img src="/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240714204918.jpg"></p><p>通过改变.com后面的如id、php等大小写查看是否是windows系统因为只有linux是大小写敏感</p><p>最后源码收集一般情况下最难，对于黑道需要在以下一些黑色页面去了解有无直接开源的源码</p><p><strong>如互站网</strong></p><p><img src="/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240714205704.jpg"></p><p>直接搜索违法软件用途的关键词，或者在bing上面直接关键词+源码搜索一般也有</p><p>使用fofa也可以搜到</p><p>最后总结：得到可以攻击的地方</p><p>1.语言PHP 2.中间件nginx 3.数据库mysql 4.操作系统win 5.源码</p><h1 id="案例二某违法网页"><a href="#案例二某违法网页" class="headerlink" title="案例二某违法网页"></a>案例二某违法网页</h1><p>采用资源变动看看是否有多个可以利用的攻击目标</p><p><img src="/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240714210354.jpg"></p><p>然后在域名注册网站查看这几个域名是否已经注册</p><p>再到ICP备案查询网看看这个公司是否已经域名备案</p><p>棱角里有提供一些企业信息收集的姿势</p><p><img src="/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240714210652.jpg"></p><p>最后回到网页直接f12查看请求头看到ASP敏感点 一般情况下ASPX与mssql (即sql server)一起搭建。</p><p><img src="/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240714211032.jpg"></p><h1 id="补天平台"><a href="#补天平台" class="headerlink" title="补天平台"></a>补天平台</h1><p>学好后可在上面提交src赚外快，即在这些大型公司开发的网游等之类由于公司是为了保密的几乎不可能获取到源码所以可以通过以下一些渠道</p><p>黑盒测试 源码泄露 资源监控（有可能开发者在github gitee发布一些相关的源码，需要收集员工信息）</p><p>一般情况下当通过f12拦截查看server了解到语言之后为了进一步试探，若不是php可以直接谷歌搜索该网站然后加php或者在网站后面加index.php实验，php是最好的语言也是漏洞最多的语言。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web_security </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Diary </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>xiaodi_3（0）</title>
+      <link href="/2024/07/09/xiaodi-3%EF%BC%880%EF%BC%89/"/>
+      <url>/2024/07/09/xiaodi-3%EF%BC%880%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1 id="抓包-封包-协议-PC应用-小程序-WEB应用"><a href="#抓包-封包-协议-PC应用-小程序-WEB应用" class="headerlink" title="抓包&amp;封包&amp;协议&amp;PC应用&amp;小程序&amp;WEB应用"></a>抓包&amp;封包&amp;协议&amp;PC应用&amp;小程序&amp;WEB应用</h1><p>学会不同对象采用不同的抓包封包技术，采取技术分析</p><p>1.抓包的意义就是将看不见的东西转换成可以操作的目标</p><p>2.常用的抓包工具茶杯、fiddler、burp</p><p>3.当要抓取的数据不是http的协议时，这时候需要使用科来网络分析或wireshark</p><p><strong>区分，burp茶杯fiddler都需要配置监听端口而wireshark科来不需要，抓取的是网络接口</strong></p><h2 id="WPE封包技术"><a href="#WPE封包技术" class="headerlink" title="WPE封包技术"></a>WPE封包技术</h2><p>wpe协议抓不到时使用封包技术或者科来</p><p>使用傻瓜软件WPE封包，集成了所有工具</p><p>传统方法，利用apk将流量递交到ccproxy 实现封包抓包</p><h1 id="加密编码进制"><a href="#加密编码进制" class="headerlink" title="加密编码进制"></a>加密编码进制</h1><p> <a href="https://cloud.tencent.com/developer/article/1748394">30余种加密编码类型的密文特征分析（建议收藏）-腾讯云开发者社区-腾讯云 (tencent.com)</a> </p><h1 id="WEB源码"><a href="#WEB源码" class="headerlink" title="WEB源码"></a>WEB源码</h1><p>1.单个源码指向安全</p><p>2.多个目录源码安全</p><p>3.多个端口源码安全（和目录型一样一个服务器两个程序）</p><p>4.服务器架设多个站点</p><p>5.第三方插件</p><p>6.架设多个应用安全</p><h2 id="番外安全"><a href="#番外安全" class="headerlink" title="番外安全"></a>番外安全</h2><p>1.域名安全</p><p>2.服务器本身安全</p><p>3.服务商信息安全</p><p>4.基于管理个人的安全</p><p><strong>以上是信息收集的突破口</strong></p><h2 id="考虑阻碍"><a href="#考虑阻碍" class="headerlink" title="考虑阻碍"></a>考虑阻碍</h2><p>1.站库分离</p><p>2.CDN加速服务（即一个缓存节点攻击影响不到主机）</p><p>3.负载均衡（可能攻击的是备用机）</p><p>4.WAF应用防火墙</p><p>5.主机防护防火墙</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web_security </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Diary </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>xiaodi_2（0）</title>
       <link href="/2024/07/07/xiaodi-2%EF%BC%880%EF%BC%89/"/>
       <url>/2024/07/07/xiaodi-2%EF%BC%880%EF%BC%89/</url>
