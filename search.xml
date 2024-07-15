@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2024/07/15/xiaodi-4-1/"/>
+      <url>/2024/07/15/xiaodi-4-1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="信息打点（2）"><a href="#信息打点（2）" class="headerlink" title="信息打点（2）"></a>信息打点（2）</h1><h2 id="一、利用指纹查看cms即程序源码类型"><a href="#一、利用指纹查看cms即程序源码类型" class="headerlink" title="一、利用指纹查看cms即程序源码类型"></a>一、利用指纹查看cms即程序源码类型</h2><p>​对于一些很普通的网页，一般情况下可以采取直接识别，但是没有的话可以利用以下平台进行扫描但是也存在扫描不到的情况中</p><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20200706.png"></p><p>扫描出cms后就可以利用github搜索关键词进行源码查找便于后面的白盒测试</p><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20201413.png"></p><p>以下是用到的工具打包全部基于python以下分别进行阐述</p><h2 id="二、敏感文件扫描"><a href="#二、敏感文件扫描" class="headerlink" title="二、敏感文件扫描"></a>二、敏感文件扫描</h2><p>利用7kb直接扫描网页看看有没有敏感文件如图例所示的zip文件包</p><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20202305.png"></p><p>因此压缩要养成习惯，压缩要在域名路径之前</p><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20202109.png"></p><h2 id="三、对于git泄露有的程序源码保存在-git文件夹没有被删除可以使用GitHack进行扫描"><a href="#三、对于git泄露有的程序源码保存在-git文件夹没有被删除可以使用GitHack进行扫描" class="headerlink" title="三、对于git泄露有的程序源码保存在.git文件夹没有被删除可以使用GitHack进行扫描"></a>三、对于git泄露有的程序源码保存在.git文件夹没有被删除可以使用GitHack进行扫描</h2><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20202650.png"></p><h2 id="四、对于SVN泄露"><a href="#四、对于SVN泄露" class="headerlink" title="四、对于SVN泄露"></a>四、对于SVN泄露</h2><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20202906.png"></p><p>现在网页进行测试如果报403说明文件夹确实存在然后利用工具SvnHack进行扫描下载</p><h2 id="五、对于MAC开发的Ds-Store泄露"><a href="#五、对于MAC开发的Ds-Store泄露" class="headerlink" title="五、对于MAC开发的Ds_Store泄露"></a>五、对于MAC开发的Ds_Store泄露</h2><p>在网页url后加上Ds_Store可以清楚看到有下载文件</p><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20203834.png"></p><p>于是同理采用扫描工具将包下载下来</p><p><img src="C:%5CUsers%5C25756%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1721047245624.png" alt="1721047245624"></p><h2 id="六、PHP特性值composer-json泄露"><a href="#六、PHP特性值composer-json泄露" class="headerlink" title="六、PHP特性值composer.json泄露"></a>六、PHP特性值composer.json泄露</h2><p>composer.json这是PHPER开发提高效率的管理包，在url后添加若网页有返回相关提供包的网页信息即可查询</p><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20204330.png"></p><p><strong>以上对于指纹的补充皆为在指纹无法使用的情况下使用</strong></p><h2 id="WEB-INF补充实战中一般无法使用，但ctf考题有"><a href="#WEB-INF补充实战中一般无法使用，但ctf考题有" class="headerlink" title="WEB-INF补充实战中一般无法使用，但ctf考题有"></a>WEB-INF补充实战中一般无法使用，但ctf考题有</h2><p>作为知识点了解即可</p><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20205233.png"></p><h2 id="GitHub源码搜集一般情况下会有"><a href="#GitHub源码搜集一般情况下会有" class="headerlink" title="GitHub源码搜集一般情况下会有"></a>GitHub源码搜集一般情况下会有</h2><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20205839.png"></p><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20210026.png"></p><p><img src="C:%5CHexo_blog%5Cblog-demo%5Csource%5Cimage%5C%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-15%20210426.png"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>xiaodi_4（0）</title>
       <link href="/2024/07/14/2024714-xiaodi-4%EF%BC%880%EF%BC%89/"/>
       <url>/2024/07/14/2024714-xiaodi-4%EF%BC%880%EF%BC%89/</url>
